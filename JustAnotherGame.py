@@ -6,6 +6,7 @@ import textWriter
 #Begin variables list
 choice = 0
 path = 0
+savestate = 0
 modifier = 0
 delay = .03
 #End variables list
@@ -72,3 +73,8 @@ if path != 5:
     textWriter.textWriter(NarratorStrings.strings[11], delay)
     time.sleep(1)
     textWriter.textWriter(NarratorStrings.strings[12], delay)
+elif path == 5:
+    textWriter.textWriter(NarratorStrings.strings[13], delay)
+    time.sleep(1)
+    textWriter.textWriter(NarratorStrings.strings[14], delay)
+    choices.savechoice(input(NarratorStrings.strings[15]), delay)

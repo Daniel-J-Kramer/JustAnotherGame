@@ -12,4 +12,7 @@ strings = [
 "Are you alright there?", #10
 "You cannot go alone, more specifically YOU can't go.", #11
 "You will need a sacrifi.. uh, um I mean another being to go instead.", #12
+"The only thing that makes this random is the numbers you insert", #13
+"Do you have a combination you would like to try?", #14
+"Insert save number here: " #15
 ]

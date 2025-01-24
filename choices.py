@@ -25,15 +25,21 @@ def choicespeed(string):
             break
     if delay == 1:
         delay = .1
+        textWriter.textWriter("Thank you for choosing properly", delay)
     elif delay == 2:
         delay = .05
+        textWriter.textWriter("Thank you for choosing properly", delay)
     elif delay == 3:
         delay = .01
+        textWriter.textWriter("Thank you for choosing properly", delay)
     else:
         print("You're kidding right? Oh well, I will choose for you")
         print("")
         delay = .05
     return delay
+def savechoice(string, delay):
+    save = 0
+    return save
 def choiceone(string, delay):
     while True:
         try:
