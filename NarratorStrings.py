@@ -8,7 +8,7 @@ strings = [
 "You sure? This is possibly actually bad.", #6
 "Lameest of Lame. A sheep has a more interesting life than you.", #7
 "Interesting choice. Could have gone with a sane choice but noooo.", #8
-"The ultimate challenge. Or the ultimate insanity.", #9
+"Is it really random if you choose it deliberately?", #9
 "Are you alright there?", #10
 "You cannot go alone, more specifically YOU can't go.", #11
 "You will need a sacrifi.. uh, um I mean another being to go instead.", #12
