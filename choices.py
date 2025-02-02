@@ -36,7 +36,7 @@ def choicespeed(delay):
         print("")
         delay = .05
     return delay
-def savechoice(string, delay):
+def savechoice(delay):
     save = 0
     return save
 def choicedifficulty(delay):
