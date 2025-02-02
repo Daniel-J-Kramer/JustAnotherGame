@@ -12,7 +12,16 @@ strings = [
 "Are you alright there?", #10
 "You cannot go alone, more specifically YOU can't go.", #11
 "You will need a sacrifi.. uh, um I mean another being to go instead.", #12
-"The only thing that makes this random is the numbers you insert", #13
-"Do you have a combination you would like to try?", #14
-"Insert save number here: " #15
+"Firstly, how hard should this journey be for your friend?", #13
+"Seriously? This is either your first time around the block,", #14
+"Or you are seriously bad at the easiest of games", #15
+"Not too simple, not too difficult", #16
+"Respectable, or bland", #17
+"Vying for a challenge eh?", #18
+"Finally a worthy player! Our Journey will be LEGENDARY!!!", #19
+"You. Have. Got. To. Be. Kidding. Me.", #20
+"You may actually be insane", #21
+"Okay, you clearly don't know what you are doing,", #22
+"I'll choose for you", #23
+"Now that that is done, let's continue", #24
 ]
