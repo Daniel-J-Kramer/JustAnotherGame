@@ -6,7 +6,7 @@ def textWriter(string, delay):
     for c in range(0, length):
         char = string[c]
         finalstring += char
-        time.sleep(delay)
+        time.sleep(delay / 2)
         if c < (length - 1):
             print(finalstring, end='\r')
         else:
