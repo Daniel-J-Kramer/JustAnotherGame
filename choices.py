@@ -136,7 +136,7 @@ def choiceone(delay):
         time.sleep(2)
         textWriter.textWriter(narrator.strings[5], delay)
         time.sleep(1)
-    elif choice == 5:
+    elif (choice >= 5) or (choice < 1):
         textWriter.textWriter(narrator.strings[9], delay)
         time.sleep(2)
         textWriter.textWriter(narrator.strings[5], delay)
