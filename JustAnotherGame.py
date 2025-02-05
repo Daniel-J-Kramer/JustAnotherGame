@@ -1,6 +1,6 @@
 import time
 import random
-import NarratorStrings
+import narrator
 import choices
 import textWriter
 #End import list
@@ -14,15 +14,15 @@ delay = .03
 #Begin game code
 delay = choices.choicespeed(delay)
 time.sleep(.2)
-textWriter.textWriter(NarratorStrings.strings[0], delay)
+textWriter.textWriter(narrator.strings[0], delay)
 time.sleep(1)
-textWriter.textWriter(NarratorStrings.strings[1], delay)
+textWriter.textWriter(narrator.strings[1], delay)
 time.sleep(1)
-textWriter.textWriter(NarratorStrings.strings[2], delay)
+textWriter.textWriter(narrator.strings[2], delay)
 time.sleep(1)
 choice = choices.choiceone(delay)
 while (choice < 1) or (choice > 5):
-    textWriter.textWriter(NarratorStrings.strings[10], delay)
+    textWriter.textWriter(narrator.strings[10], delay)
     time.sleep(1)
     textWriter.textWriter(choices.choiceonestrings[0], delay)
     time.sleep(.5)
@@ -34,7 +34,7 @@ while (choice < 1) or (choice > 5):
     time.sleep(.5)
     textWriter.textWriter(choices.choiceonestrings[4], delay)
     time.sleep(.25)
-    choice = choices.choiceone(input(NarratorStrings.strings[3]), delay)
+    choice = choices.choiceone(input(narrator.strings[3]), delay)
 if choice == 1:
     path = 1
     time.sleep(1)
@@ -51,10 +51,10 @@ if choice == 5:
     pathlist = [1, 2, 3, 4]
     path = random.choice(pathlist)
 print("")
-textWriter.textWriter(NarratorStrings.strings[11], delay)
+textWriter.textWriter(narrator.strings[11], delay)
 time.sleep(1)
-textWriter.textWriter(NarratorStrings.strings[12], delay)
+textWriter.textWriter(narrator.strings[12], delay)
 time.sleep(1)
-textWriter.textWriter(NarratorStrings.strings[13], delay)
+textWriter.textWriter(narrator.strings[13], delay)
 modifier = choices.choicedifficulty(delay)
 time.sleep(1)
