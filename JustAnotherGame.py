@@ -4,6 +4,7 @@ import textWriter
 import narrator
 import choices
 import paths
+import character
 #End import list
 #Begin variables list
 choice = 0

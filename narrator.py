@@ -1,3 +1,4 @@
+import character
 strings = [
 "Lets start at a very good place to start.", #0
 "Or not, whatever suits you,", #1
