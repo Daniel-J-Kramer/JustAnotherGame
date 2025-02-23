@@ -25,3 +25,8 @@ narrator = [
 "I'll choose for you", #23
 "Now that that is done, let's continue", #24
 ]
+
+errorHandling = [
+"Please enter a whole number. ", #0
+"Please enter a number shown. ", #1
+]
