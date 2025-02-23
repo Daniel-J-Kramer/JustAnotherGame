@@ -1,5 +1,5 @@
-import narrator
-import textWriter
+from strings import narrator
+from textWriter import textWriter
 import time
 import random
 #End import list
@@ -9,10 +9,10 @@ choiceError = "Please enter a whole number. "
 #Begin game code
 def choicespeed(delay):
     string = ""
-    textWriter.textWriter("How fast should I talk?", delay)
-    textWriter.textWriter("1. this slow?", .1)
-    textWriter.textWriter("2. this mediocre?", .05)
-    textWriter.textWriter("3. this fast?", .01)
+    textWriter("How fast should I talk?", delay)
+    textWriter("1. this slow?", .1)
+    textWriter("2. this mediocre?", .05)
+    textWriter("3. this fast?", .01)
     while True:
         try:
             delay = int(string)
@@ -24,13 +24,13 @@ def choicespeed(delay):
             break
     if delay == 1:
         delay = .1
-        textWriter.textWriter("Thank you for choosing properly", delay)
+        textWriter("Thank you for choosing properly", delay)
     elif delay == 2:
         delay = .05
-        textWriter.textWriter("Thank you for choosing properly", delay)
+        textWriter("Thank you for choosing properly", delay)
     elif delay == 3:
         delay = .01
-        textWriter.textWriter("Thank you for choosing properly", delay)
+        textWriter("Thank you for choosing properly", delay)
     else:
         print("You're kidding right? Oh well, I will choose for you")
         print("")
@@ -43,48 +43,48 @@ def choicedifficulty(delay):
     difficulty = 0
     modifier = 0
     string = ""
-    textWriter.textWriter("1. Easy", delay)
+    textWriter("1. Easy", delay)
     time.sleep(.5)
-    textWriter.textWriter("2. Normal", delay)
+    textWriter("2. Normal", delay)
     time.sleep(.5)
-    textWriter.textWriter("3. Hard", delay)
+    textWriter("3. Hard", delay)
     time.sleep(.5)
-    textWriter.textWriter("4. Why choose anything harder?", delay)
+    textWriter("4. Why choose anything harder?", delay)
     time.sleep(.5)
     while True:
         try:
             difficulty = int(string)
         except ValueError:
             print(choiceError)
-            string = input(narrator.strings[3])
+            string = input(narrator[3])
             continue
         else:
             break
     if difficulty == 1:
-        textWriter.textWriter(narrator.strings[14], delay)
+        textWriter(narrator[14], delay)
         time.sleep(.75)
-        textWriter.textWriter(narrator.strings[15], delay)
+        textWriter(narrator[15], delay)
         modifier = .5
     elif difficulty == 2:
-        textWriter.textWriter(narrator.strings[16], delay)
+        textWriter(narrator[16], delay)
         time.sleep(.75)
-        textWriter.textWriter(narrator.strings[17], delay)
+        textWriter(narrator[17], delay)
         modifier = 1
     elif difficulty == 3:
-        textWriter.textWriter(narrator.strings[18], delay)
+        textWriter(narrator[18], delay)
         time.sleep(.75)
-        textWriter.textWriter(narrator.strings[19], delay)
+        textWriter(narrator[19], delay)
         modifier = 1.5
     elif difficulty == 4:
-        textWriter.textWriter(narrator.strings[20], delay)
+        textWriter(narrator[20], delay)
         time.sleep(.75)
-        textWriter.textWriter(narrator.strings[21], delay)
+        textWriter(narrator[21], delay)
         modifier = 2
     else:
         difficultyList = [.5, 1, 1.5]
-        textWriter.textWriter(narrator.strings[22], delay)
+        textWriter(narrator[22], delay)
         time.sleep(.75)
-        textWriter.textWriter(narrator.strings[23], delay)
+        textWriter(narrator[23], delay)
         modifier = random.choice(difficultyList)
         if modifier == .5:
             print("Easy")
@@ -93,53 +93,54 @@ def choicedifficulty(delay):
         elif modifier == 1.5:
             print ("Hard")
         time.sleep(.75)
-        textWriter.textWriter(narrator.strings[24], delay)
+        textWriter(narrator[24], delay)
     return modifier
 def choiceone(delay):
     string = ""
-    textWriter.textWriter("1. A Good Place", delay)
+    textWriter("1. A Good Place", delay)
     time.sleep(.5)
-    textWriter.textWriter("2. A Bad Place", delay)
+    textWriter("2. A Bad Place", delay)
     time.sleep(.5)
-    textWriter.textWriter("3. A So-So Place", delay)
+    textWriter("3. A So-So Place", delay)
     time.sleep(.5)
-    textWriter.textWriter("4. A Weird Place", delay)
+    textWriter("4. A Weird Place", delay)
     time.sleep(.5)
-    textWriter.textWriter("5. A Random Place", delay)
+    textWriter("5. A Random Place", delay)
     time.sleep(.25)
     while True:
         try:
             choice = int(string)
         except ValueError:
             print(choiceError)
-            string = input(narrator.strings[3])
+            string = input(narrator[3])
             continue
         else:
             break
     if choice == 1:
-        textWriter.textWriter(narrator.strings[4], delay)
+        textWriter(narrator[4], delay)
         time.sleep(2)
-        textWriter.textWriter(narrator.strings[5], delay)
+        textWriter(narrator[5], delay)
         time.sleep(1)
     elif choice == 2:
-        textWriter.textWriter(narrator.strings[6], delay)
+        textWriter(narrator[6], delay)
         time.sleep(2)
-        textWriter.textWriter(narrator.strings[5], delay)
+        textWriter(narrator[5], delay)
         time.sleep(1)
     elif choice == 3:
-        textWriter.textWriter(narrator.strings[7], delay)
+        textWriter(narrator[7], delay)
         time.sleep(2)
-        textWriter.textWriter(narrator.strings[5], delay)
+        textWriter(narrator[5], delay)
         time.sleep(1)
     elif choice == 4:
-        textWriter.textWriter(narrator.strings[8], delay)
+        textWriter(narrator[8], delay)
         time.sleep(2)
-        textWriter.textWriter(narrator.strings[5], delay)
+        textWriter(narrator[5], delay)
         time.sleep(1)
     elif (choice >= 5) or (choice < 1):
-        textWriter.textWriter(narrator.strings[9], delay)
+        choice = 5
+        textWriter(narrator[9], delay)
         time.sleep(2)
-        textWriter.textWriter(narrator.strings[5], delay)
+        textWriter(narrator[5], delay)
         time.sleep(1)
     direction = choice
     return direction

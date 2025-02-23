@@ -1,7 +1,7 @@
 import time
 import random
-import narrator
-import textWriter
+from strings import narrator
+from textWriter import textWriter
 #End import list
 #Begin variables list
 path = 0

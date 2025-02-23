@@ -1,5 +1,4 @@
-import character
-strings = [
+narrator = [
 "Lets start at a very good place to start.", #0
 "Or not, whatever suits you,", #1
 "Maybe you like bad places instead?", #2
