@@ -6,9 +6,8 @@ from textWriter import textWriter
 #Begin variables list
 #End variables list
 #Begin game code
-def twopath():
+def twopath(choice = 0):
     path = 0
-    choice = 0
 
     if choice == 1:
         path = 1
@@ -18,7 +17,7 @@ def twopath():
         time.sleep(1)
     return path
 
-def threepath():
+def threepath(choice = 0):
     path = 0
     choice = 0
 
@@ -35,9 +34,8 @@ def threepath():
         time.sleep(1)
     return path
 
-def fourpath():
+def fourpath(choice = 0):
     path = 0
-    choice = 0
 
     if choice == 1:
         path = 1
@@ -53,9 +51,8 @@ def fourpath():
         time.sleep(1)
     return path
 
-def fivepath():
+def fivepath(choice = 0):
     path = 0
-    choice = 0
 
     if choice == 1:
         path = 1

@@ -13,7 +13,7 @@ def choicespeed(delay):
     textWriter("2. this mediocre?", .05)
     textWriter("3. this fast?", .01)
 
-    speed = threepath()
+    speed = threepath(input(narrator[3]))
     textWriter("Thank you for choosing properly", delay)
 
     if speed == 1:
