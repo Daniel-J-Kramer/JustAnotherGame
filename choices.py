@@ -9,20 +9,23 @@ import random
 #Begin game code
 def choicespeed(delay):
     textWriter("How fast should I talk?", delay)
-    textWriter("1. this slow?", .1)
-    textWriter("2. this mediocre?", .05)
+    textWriter("1. this slow?", .15)
+    textWriter("2. this mediocre?", .075)
     textWriter("3. this fast?", .01)
 
     speed = threepath(input(narrator[3]))
     textWriter("Thank you for choosing properly", delay)
-
+    
     if speed == 1:
-        delay = .1
+        delay = .15
+        return delay
     elif speed == 2:
-        speed = .05
+        delay = .075
+        return delay
     elif speed == 3:
         delay = .01
-    return delay
+        return delay
+
 def choicedifficulty(delay):
     difficulty = 0
     modifier = 0
@@ -42,22 +45,26 @@ def choicedifficulty(delay):
         time.sleep(.75)
         textWriter(narrator[15], delay)
         modifier = .5
+        return modifier
     elif difficulty == 2:
         textWriter(narrator[16], delay)
         time.sleep(.75)
         textWriter(narrator[17], delay)
         modifier = 1
+        return modifier
     elif difficulty == 3:
         textWriter(narrator[18], delay)
         time.sleep(.75)
         textWriter(narrator[19], delay)
         modifier = 1.5
+        return modifier
     elif difficulty == 4:
         textWriter(narrator[20], delay)
         time.sleep(.75)
         textWriter(narrator[21], delay)
         modifier = 2
-    return modifier
+        return modifier
+
 def choiceone(delay):
     textWriter("1. A Good Place", delay)
     time.sleep(.5)
@@ -93,10 +100,11 @@ def choiceone(delay):
         textWriter(narrator[5], delay)
         time.sleep(1)
     elif choice == 5:
-        choice = random([1, 2, 3, 4])
+        choice = random.choice([1, 2, 3, 4])
         textWriter(narrator[9], delay)
         time.sleep(2)
         textWriter(narrator[5], delay)
         time.sleep(1)
-    direction = choice
-    return direction
+        return choice
+
+    return choice

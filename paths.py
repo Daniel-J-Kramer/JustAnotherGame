@@ -9,63 +9,71 @@ from textWriter import textWriter
 def twopath(choice = 0):
     path = 0
 
-    if choice == 1:
+    if choice == "1":
         path = 1
         time.sleep(1)
-    elif choice == 2:
+        return path
+    elif choice == "2":
         path == 2
         time.sleep(1)
-    return path
+        return path
 
-def threepath(choice = 0):
+def threepath(choice):
     path = 0
-    choice = 0
-
     
-
-    if choice == 1:
+    if choice == "1":
         path = 1
         time.sleep(1)
-    elif choice == 2:
-        path == 2
+        return path
+    elif choice == "2":
+        path = 2
         time.sleep(1)
-    elif choice == 3:
-        path == 3
+        return path
+    elif choice == "3":
+        path = 3
         time.sleep(1)
-    return path
+        return path
 
 def fourpath(choice = 0):
     path = 0
 
-    if choice == 1:
+    if choice == "1":
         path = 1
         time.sleep(1)
-    elif choice == 2:
-        path == 2
+        return path
+    elif choice == "2":
+        path = 2
         time.sleep(1)
-    elif choice == 3:
-        path == 3
+        return path
+    elif choice == "3":
+        path = 3
         time.sleep(1)
-    elif choice == 4:
-        path == 4
+        return path
+    elif choice == "4":
+        path = 4
         time.sleep(1)
-    return path
+        return path
 
 def fivepath(choice = 0):
     path = 0
 
-    if choice == 1:
+    if choice == "1":
         path = 1
         time.sleep(1)
-    elif choice == 2:
+        return path
+    elif choice == "2":
         path = 2
         time.sleep(1)
-    elif choice == 3:
+        return path
+    elif choice == "3":
         path = 3
         time.sleep(1)
-    elif choice == 4:
+        return path
+    elif choice == "4":
         path = 4
         time.sleep(1)
-    elif choice == 5:
-        path == 5
-    return path
+        return path
+    elif choice == "5":
+        path = 5
+        return path
+    
