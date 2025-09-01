@@ -2,7 +2,7 @@ import time
 import random
 from textWriter import textWriter
 from strings import narrator
-from choices import choicedifficulty, choicespeed, choiceone
+from choices import choicedifficulty, choicespeed, choicetype
 from paths import twopath, threepath, fourpath, fivepath
 import character
 #End import list
@@ -17,6 +17,7 @@ def main():
     #End variables list
     #Begin game code
     delay = choicespeed(delay)
+    print("")
     time.sleep(.2)
     textWriter(narrator[0], delay)
     time.sleep(1)
@@ -24,8 +25,7 @@ def main():
     time.sleep(1)
     textWriter(narrator[2], delay)
     time.sleep(1)
-    choice = choiceone(delay)
-    path = fivepath()
+    choice = choicetype(delay)
     print("")
     textWriter(narrator[11], delay)
     time.sleep(1)

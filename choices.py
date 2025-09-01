@@ -59,13 +59,13 @@ def choicedifficulty(delay):
         modifier = 1.5
         return modifier
     elif difficulty == 4:
-        textWriter(narrator[20], delay)
+        textWriter(narrator[20], .2)
         time.sleep(.75)
         textWriter(narrator[21], delay)
         modifier = 2
         return modifier
 
-def choiceone(delay):
+def choicetype(delay):
     textWriter("1. A Good Place", delay)
     time.sleep(.5)
     textWriter("2. A Bad Place", delay)
