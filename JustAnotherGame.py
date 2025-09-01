@@ -1,11 +1,11 @@
 import pygame
-import constants
 import time
 import random
+from constants import *
 from textWriter import textWriter
-from strings import narrator
-from choices import choicedifficulty, choicespeed, choicetype
-from paths import twopath, threepath, fourpath, fivepath
+from strings import *
+from choices import *
+from paths import *
 import character
 #End import list
 #Begin game
@@ -15,9 +15,9 @@ def main():
     dt = 0
 #Insert Groups
 #For items that receive updates:
-    updateable = None
+    updateable = pygame.sprite.Group()
 #For items that can be drawn:
-    drawable = None
+    drawable = pygame.sprite.Group()
 #End Insert Groups
 
 #Insert Containers
@@ -31,7 +31,7 @@ def main():
         updateable.update(dt)
 
 #Begin Game Math Code
-        delay = choicespeed(delay)
+        choicespeed(delay)
         print("")
         time.sleep(.2)
         textWriter(narrator[0], delay)
