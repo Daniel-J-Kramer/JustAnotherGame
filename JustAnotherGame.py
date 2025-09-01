@@ -11,6 +11,7 @@ import character
 #Begin game
 def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("JustAnotherGame")
     clock = pygame.time.Clock()
     dt = 0
 #Insert Groups
