@@ -1,3 +1,5 @@
+import pygame
+import constants
 import time
 import random
 from textWriter import textWriter
@@ -8,32 +10,54 @@ import character
 #End import list
 #Begin game
 def main():
-    #Begin variables list
-    choice = 0
-    path = 0
-    savestate = 0
-    modifier = 0
-    delay = .03
-    #End variables list
-    #Begin game code
-    delay = choicespeed(delay)
-    print("")
-    time.sleep(.2)
-    textWriter(narrator[0], delay)
-    time.sleep(1)
-    textWriter(narrator[1], delay)
-    time.sleep(1)
-    textWriter(narrator[2], delay)
-    time.sleep(1)
-    choice = choicetype(delay)
-    print("")
-    textWriter(narrator[11], delay)
-    time.sleep(1)
-    textWriter(narrator[12], delay)
-    time.sleep(1)
-    textWriter(narrator[13], delay)
-    modifier = choicedifficulty(delay)
-    time.sleep(1)
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    clock = pygame.time.Clock()
+    dt = 0
+#Insert Groups
+#For items that receive updates:
+    updateable = None
+#For items that can be drawn:
+    drawable = None
+#End Insert Groups
+
+#Insert Containers
+
+#End Insert Containers
+
+    while True:
+        for event in pygame.event.get()
+            if event.type == pygame.QUIT
+                return
+        updateable.update(dt)
+
+#Begin Game Math Code
+        delay = choicespeed(delay)
+        print("")
+        time.sleep(.2)
+        textWriter(narrator[0], delay)
+        time.sleep(1)
+        textWriter(narrator[1], delay)
+        time.sleep(1)
+        textWriter(narrator[2], delay)
+        time.sleep(1)
+        choice = choicetype(delay)
+        print("")
+        textWriter(narrator[11], delay)
+        time.sleep(1)
+        textWriter(narrator[12], delay)
+        time.sleep(1)
+        textWriter(narrator[13], delay)
+        modifier = choicedifficulty(delay)
+        time.sleep(1)
+#End Game Math Code
+#Begin Game Draw Code
+        screen.fill((0, 0, 0))
+        for sprite in drawable:
+            sprite.draw(screen)
+#End Game Draw Code
+#Begin Clock Increment
+        dt = clock.tick(60) / 1000
+        pygame.display.flip()
 
 if __name__ == "__main__":
     main()
