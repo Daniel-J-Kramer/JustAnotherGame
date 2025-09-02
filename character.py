@@ -1,4 +1,4 @@
-import JustAnotherGame
+import main
 import constants
 #End import list
 #Begin variables list

@@ -6,6 +6,7 @@ from textWriter import textWriter
 from strings import *
 from choices import *
 from paths import *
+from gameCode import *
 import character
 #End import list
 #Begin game
@@ -32,24 +33,7 @@ def main():
         updateable.update(dt)
 
 #Begin Game Math Code
-        choicespeed(delay)
-        print("")
-        time.sleep(.2)
-        textWriter(narrator[0], delay)
-        time.sleep(1)
-        textWriter(narrator[1], delay)
-        time.sleep(1)
-        textWriter(narrator[2], delay)
-        time.sleep(1)
-        choice = choiceworld(delay)
-        print("")
-        textWriter(narrator[11], delay)
-        time.sleep(1)
-        textWriter(narrator[12], delay)
-        time.sleep(1)
-        textWriter(narrator[13], delay)
-        modifier = choicedifficulty(delay)
-        time.sleep(1)
+        
 #End Game Math Code
 #Begin Game Draw Code
         screen.fill((0, 0, 0))
