@@ -65,7 +65,7 @@ def choicedifficulty(delay):
         modifier = 2
         return modifier
 
-def choicetype(delay):
+def choiceworld(delay):
     textWriter("1. A Good Place", delay)
     time.sleep(.5)
     textWriter("2. A Bad Place", delay)

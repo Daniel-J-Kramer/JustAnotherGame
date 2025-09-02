@@ -41,7 +41,7 @@ def main():
         time.sleep(1)
         textWriter(narrator[2], delay)
         time.sleep(1)
-        choice = choicetype(delay)
+        choice = choiceworld(delay)
         print("")
         textWriter(narrator[11], delay)
         time.sleep(1)
