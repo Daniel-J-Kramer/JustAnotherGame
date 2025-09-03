@@ -1,5 +1,6 @@
 import time
-def textWriter(string, delay):
+import pygame
+def textWriter(string, delay, font):
     length = len(string)
     char = ""
     finalstring = ""
