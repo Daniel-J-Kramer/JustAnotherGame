@@ -12,3 +12,21 @@ def textWriter(string, delay, font):
             print(finalstring, end='\r')
         else:
             print(finalstring)
+
+class Text():
+
+    def __init__(self, string, x, y, font=pygame.font.SysFont("Comic Sans MS", 24), color=(255, 255, 255)):
+        self.name = self
+        self.string = string
+        self.font = font
+        self.color = color
+        self.x = x
+        self.y = y
+
+    def change_string(self, string, font=pygame.font.SysFont("Comic Sans MS", 24), color=(255, 255, 255)):
+        self.string = string
+        self.font = font
+
+    def change_pos(self, x, y):
+        self.x = x
+        self.y = y
