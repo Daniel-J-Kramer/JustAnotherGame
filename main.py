@@ -24,7 +24,7 @@ def main():
 #Insert Containers
     Text.containers = (updateable, drawable)
 #End Insert Containers
-    string = "Hello World"
+    string = "Just Another Game"
     textWriter = Text(string, (1.5 / SCREEN_WIDTH), (1.5 / SCREEN_HEIGHT))
 #End Initialization
     while True:
