@@ -16,7 +16,9 @@ def main():
     pygame.display.set_caption("GreyTone")
     pygame.font.init()
     font = pygame.font.Font('freesansbold.ttf', 16)
-    text = font.render("GreyTone", True, (255,255,255))
+    textColor = (255,255,255)
+    text = font.render("", True, textColor)
+    textstring = "GreyTone"
     textBackground = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT//1.2))
     textBackground.fill((0,0,255))
     textBox = text.get_rect()
@@ -37,6 +39,11 @@ def main():
             if event.type == pygame.QUIT:
                 return
     #Begin Game Math Code
+        
+        textlength = len(textstring)
+        text = font.render(textWriter(textstring,font,textlength), True, textColor)
+        textlength -= 1
+
     #End Game Math Code
 #End Game Code
 #-------------------------------------------------------------------
