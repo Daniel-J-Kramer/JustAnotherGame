@@ -13,7 +13,7 @@ import character
 def main():
 #Initialization
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("GreyTone")
+    pygame.display.set_caption("JustAnotherGame")
     pygame.font.init()
     #Initialize Text
     txtmain = FONT.render("", True, TEXTCOLOR)
@@ -68,7 +68,7 @@ def main():
            if event.type == pygame.QUIT:
                return
     #Begin Game Math Code
-        if txtmainlen == len(MAINSTRING) + 1:
+        if (txtstronelen + txtstrtwolen + txtstrthreelen + txtstrfourlen) == (len(STRINGONE) + len(STRINGTWO) + len(STRINGTHREE) + len(STRINGFOUR) + 4):
             if block == False:
                 display = not display
                 block = True
@@ -76,11 +76,13 @@ def main():
             block = False
         if display:
             txtmain, txtmainlen = textWriter(MAINSTRING, FONT, txtmainlen, TEXTCOLOR)
-            txtquestion, txtquestionlen = textWriter(QUESTIONSTRING, FONT, txtquestionlen)
-            txtstrone, txtstronelen = textWriter(STRINGONE, FONT, txtstronelen)
-            txtstrtwo, txtstrtwolen = textWriter(STRINGTWO, FONT, txtstrtwolen)
-            txtstrthree, txtstrthreelen = textWriter(STRINGTHREE, FONT, txtstrthreelen)
-            txtstrfour, txtstrfourlen = textWriter(STRINGFOUR, FONT, txtstrfourlen)
+            if txtmainlen == len(MAINSTRING) + 1:
+                txtquestion, txtquestionlen = textWriter(QUESTIONSTRING, FONT, txtquestionlen)
+                if txtquestionlen == len(QUESTIONSTRING) + 1:
+                    txtstrone, txtstronelen = textWriter(STRINGONE, FONT, txtstronelen)
+                    txtstrtwo, txtstrtwolen = textWriter(STRINGTWO, FONT, txtstrtwolen)
+                    txtstrthree, txtstrthreelen = textWriter(STRINGTHREE, FONT, txtstrthreelen)
+                    txtstrfour, txtstrfourlen = textWriter(STRINGFOUR, FONT, txtstrfourlen)
             time.sleep(TEXTSPEED)
         elif not display:
             keys = pygame.key.get_pressed()
