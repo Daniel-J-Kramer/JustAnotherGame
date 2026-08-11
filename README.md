@@ -1,2 +1,2 @@
 # JustAnotherGame
-Java text based game
+Python-built text based game
