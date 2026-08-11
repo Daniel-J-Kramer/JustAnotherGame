@@ -2,14 +2,27 @@ import pygame
 pygame.font.init()
 
 #Display constants
-SCREEN_WIDTH = 720
-SCREEN_HEIGHT = 360
-TEXTBOX_SIZE = (int(SCREEN_WIDTH//10), int(SCREEN_HEIGHT//1.2))
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
+MAINTEXTBOX_SIZE = (int(SCREEN_WIDTH//6.5), int(SCREEN_HEIGHT//1.25))
+MAINTEXTBOXCOLOR = (128,128,128)
+TEXTQBOX_SIZE = (int(SCREEN_WIDTH//90), int(SCREEN_HEIGHT//32))
+TEXT1BOXSIZE = (int(SCREEN_WIDTH//90), int(SCREEN_HEIGHT//5))
+TEXT2BOXSIZE = (int(SCREEN_WIDTH//90), int(SCREEN_HEIGHT//2.5))
+TEXT3BOXSIZE = (int(SCREEN_WIDTH//90), int(SCREEN_HEIGHT//1.67))
+TEXT4BOXSIZE = (int(SCREEN_WIDTH//90), int(SCREEN_HEIGHT//1.25))
+TEXTBOXCOLOR = (0,0,255)
 
 #Text constants
-FONT = pygame.font.Font('freesansbold.ttf', 16)
+FONTSIZE = SCREEN_HEIGHT // 32
+FONT = pygame.font.Font('freesansbold.ttf', FONTSIZE)
 TEXTCOLOR = (255,255,255)
-TEXTSTRING = "Want to play a game???"
+MAINSTRING = "Want to play a game???"
+QUESTIONSTRING = "Choose an Option:"
+STRINGONE = "Yes"
+STRINGTWO = "No"
+STRINGTHREE = "Change Text Speed"
+STRINGFOUR = "Change Color Scheme"
 SLOWTEXT = .2
 NORMAL = .15
 FASTTEXT = .075
