@@ -1,5 +1,4 @@
 from strings import narrator, errorHandling
-from textWriter import textWriter
 from paths import twopath, threepath, fourpath, fivepath
 import time
 import random

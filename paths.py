@@ -1,7 +1,6 @@
 import time
 import random
 from strings import narrator, errorHandling
-from textWriter import textWriter
 #End import list
 #Begin variables list
 #End variables list
