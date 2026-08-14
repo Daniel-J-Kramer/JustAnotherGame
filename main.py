@@ -7,7 +7,7 @@ from choices import *
 from paths import *
 from gameCode import *
 import character
-from Text import Text
+from Text import Text 
 #End import list
 #Begin game
 def main():
@@ -15,35 +15,31 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("JustAnotherGame")
     pygame.font.init()
-#    updateable = pygame.sprite.Group()
-#    drawable = pygame.sprite.Group()
-
-#    Text.containers(updateable, drawable)
+    #Initialize Groups
+    updateable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    #Initialize Containers
+    Text.containers = (drawable, updateable)
     #Initialize Text
-    txtmain: Text = Text(MAINSTRING, FONT, TEXTCOLOR, MAINTEXTBOX_SIZE)
-    txtmain.step1 = True
-    txtquestion: Text = Text(QUESTIONSTRING, FONT, TEXTCOLOR, TEXTQBOX_SIZE)
-    txtquestion.step2 = True
-    txtstrone: Text = Text(STRINGONE, FONT, TEXTCOLOR, TEXT1BOXSIZE)
-    txtstrtwo: Text = Text(STRINGTWO, FONT, TEXTCOLOR, TEXT2BOXSIZE)
-    txtstrthree: Text = Text(STRINGTHREE, FONT, TEXTCOLOR, TEXT3BOXSIZE)
-    txtstrfour: Text = Text(STRINGFOUR, FONT, TEXTCOLOR, TEXT4BOXSIZE)
-    txtstrone.step3 = True
-    txtstrtwo.step3 = True
-    txtstrthree.step3 = True
-    txtstrfour.step3 = True
+    txtmain: Text = Text("MAINTEXT", MAINSTRING, FONT, TEXTCOLOR, MAINTEXTBOX_SIZE)
+    txtmain.step = True
+    txtquestion: Text = Text("QUESTIONTEXT", QUESTIONSTRING, FONT, TEXTCOLOR, TEXTQBOX_SIZE)
+    txtstrone: Text = Text("STRINGONE", STRINGONE, FONT, TEXTCOLOR, TEXT1BOXSIZE)
+    txtstrtwo: Text = Text("STRINGTWO", STRINGTWO, FONT, TEXTCOLOR, TEXT2BOXSIZE)
+    txtstrthree: Text = Text("STRINGTHREE", STRINGTHREE, FONT, TEXTCOLOR, TEXT3BOXSIZE)
+    txtstrfour: Text = Text("STRINGFOUR", STRINGFOUR, FONT, TEXTCOLOR, TEXT4BOXSIZE)
     #Text Backgrounds
     txtmainBackground = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT//1.2))
     txtmainBackground.fill(MAINTEXTBOXCOLOR)
     txtBackground = pygame.Surface((SCREEN_WIDTH//7, SCREEN_HEIGHT))
     txtBackground.fill(TEXTBOXCOLOR)
 
-    txtmain.get_screen()
-    txtquestion.get_screen()
-    txtstrone.get_screen()
-    txtstrtwo.get_screen()
-    txtstrthree.get_screen()
-    txtstrfour.get_screen()
+    txtmain.get_image()
+    txtquestion.get_image()
+    txtstrone.get_image()
+    txtstrtwo.get_image()
+    txtstrthree.get_image()
+    txtstrfour.get_image()
     #Text Surfaces
     txtmain.go_get_rect(MAINTEXTBOX_SIZE)
     txtquestion.go_get_rect(TEXTQBOX_SIZE)
@@ -62,12 +58,12 @@ def main():
         screen.fill((0, 0, 0))
         screen.blit(txtmainBackground, (0,SCREEN_HEIGHT//1.3))
         screen.blit(txtBackground, (0, 0))
-        screen.blit(txtmain.screen, txtmain.pos)
-        screen.blit(txtquestion.screen, txtquestion.pos)
-        screen.blit(txtstrone.screen, txtstrone.pos)
-        screen.blit(txtstrtwo.screen, txtstrtwo.pos)
-        screen.blit(txtstrthree.screen, txtstrthree.pos)
-        screen.blit(txtstrfour.screen, txtstrfour.pos)
+        screen.blit(txtmain.image, txtmain.pos)
+        screen.blit(txtquestion.image, txtquestion.pos)
+        screen.blit(txtstrone.image, txtstrone.pos)
+        screen.blit(txtstrtwo.image, txtstrtwo.pos)
+        screen.blit(txtstrthree.image, txtstrthree.pos)
+        screen.blit(txtstrfour.image, txtstrfour.pos)
         
         for event in pygame.event.get():
            if event.type == pygame.QUIT:
@@ -79,15 +75,22 @@ def main():
                 block = True
         else:    
             block = False
+
         if display:
-            txtmain.write_text()
+            if txtmain.step == False:
+                txtmain.step = True
+
+            for obj in updateable:
+                obj.update()
+
+
             if len(txtmain.text) == len(txtmain.written):
-                txtquestion.write_text()
+                txtquestion.step = True
                 if len(txtquestion.text) == len(txtquestion.written):
-                    txtstrone.write_text()
-                    txtstrtwo.write_text()
-                    txtstrthree.write_text()
-                    txtstrfour.write_text()
+                    txtstrone.step = True
+                    txtstrtwo.step = True
+                    txtstrthree.step = True
+                    txtstrfour.step = True
 
             time.sleep(TEXTSPEED)
         elif not display:
