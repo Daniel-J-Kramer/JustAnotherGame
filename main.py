@@ -6,7 +6,7 @@ from strings import *
 from choices import *
 from paths import *
 from gameCode import *
-import character
+import Character
 from Text import Text 
 #End import list
 #Begin game
@@ -15,11 +15,14 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("JustAnotherGame")
     pygame.font.init()
+
     #Initialize Groups
     updateable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+
     #Initialize Containers
     Text.containers = (drawable, updateable)
+
     #Initialize Text
     txtmain: Text = Text("MAINTEXT", MAINSTRING, FONT, TEXTCOLOR, MAINTEXTBOX_SIZE)
     txtmain.step = True
@@ -28,6 +31,8 @@ def main():
     txtstrtwo: Text = Text("STRINGTWO", STRINGTWO, FONT, TEXTCOLOR, TEXT2BOXSIZE)
     txtstrthree: Text = Text("STRINGTHREE", STRINGTHREE, FONT, TEXTCOLOR, TEXT3BOXSIZE)
     txtstrfour: Text = Text("STRINGFOUR", STRINGFOUR, FONT, TEXTCOLOR, TEXT4BOXSIZE)
+    updateable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
+    drawable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
     #Text Backgrounds
     txtmainBackground = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT//1.2))
     txtmainBackground.fill(MAINTEXTBOXCOLOR)
@@ -40,6 +45,7 @@ def main():
     txtstrtwo.get_image()
     txtstrthree.get_image()
     txtstrfour.get_image()
+
     #Text Surfaces
     txtmain.go_get_rect(MAINTEXTBOX_SIZE)
     txtquestion.go_get_rect(TEXTQBOX_SIZE)
@@ -47,27 +53,26 @@ def main():
     txtstrtwo.go_get_rect(TEXT2BOXSIZE)
     txtstrthree.go_get_rect(TEXT3BOXSIZE)
     txtstrfour.go_get_rect(TEXT4BOXSIZE)
+
     #Time Variables and Others
     clock = pygame.time.Clock()
     dt = 0
     block = False
     display = True
+
+    
 #End Initialization
 #Begin Game Loop
     while True:
         screen.fill((0, 0, 0))
         screen.blit(txtmainBackground, (0,SCREEN_HEIGHT//1.3))
         screen.blit(txtBackground, (0, 0))
-        screen.blit(txtmain.image, txtmain.pos)
-        screen.blit(txtquestion.image, txtquestion.pos)
-        screen.blit(txtstrone.image, txtstrone.pos)
-        screen.blit(txtstrtwo.image, txtstrtwo.pos)
-        screen.blit(txtstrthree.image, txtstrthree.pos)
-        screen.blit(txtstrfour.image, txtstrfour.pos)
-        
+        drawable.draw(screen)
+
         for event in pygame.event.get():
            if event.type == pygame.QUIT:
                return
+           
     #Begin Game Math Code
         if (len(txtstrone.text) + len(txtstrtwo.text) + len(txtstrthree.text) + len(txtstrfour.text)) == (len(txtstrone.written) + len(txtstrtwo.written) + len(txtstrthree.written) + len(txtstrfour.written)):
             if block == False:
@@ -80,9 +85,7 @@ def main():
             if txtmain.step == False:
                 txtmain.step = True
 
-            for obj in updateable:
-                obj.update()
-
+            updateable.update()
 
             if len(txtmain.text) == len(txtmain.written):
                 txtquestion.step = True
@@ -110,6 +113,7 @@ def main():
                 txtmain.color = (0,255,0)
 
                 display = True
+
     #End Game Math Code
 #-------------------------------------------------------------------
     #Begin Clock Increment

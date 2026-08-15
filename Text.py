@@ -1,12 +1,14 @@
 import pygame
 from constants import *
 import random
+from DefaultObject import DefaultObject
 
-
-class Text(pygame.sprite.Sprite):
-    containers: tuple[pygame.sprite.Group, ...]
+class Text(DefaultObject):
+    
+    
     def __init__(self, name: str, text: str, font: pygame.font.Font, color: tuple, pos: tuple):
-
+        super().__init__()
+        
         self.text: str = text
         self.font: pygame.font.Font = font
         self.color: tuple = color
@@ -16,7 +18,7 @@ class Text(pygame.sprite.Sprite):
         self.pos: tuple = pos
         self.written: str = ""
         self.step: bool = False
-
+    
 
     def get_text(self):
         return self.text
@@ -28,10 +30,10 @@ class Text(pygame.sprite.Sprite):
         return self.color
 
     def draw(self, screen):
-        return FONT.render(self.text, True, self.color)
+        return self.font.render(self.text, True, self.color)
 
     def update(self):
-        if self.step:
+        if self.step == True:
             self.write_text()
 
     def go_get_rect(self, txtbox):
