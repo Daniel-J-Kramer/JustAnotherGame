@@ -1,6 +1,10 @@
 import pygame
 pygame.font.init()
 
+updateable = pygame.sprite.Group()
+drawable = pygame.sprite.Group()
+texts = pygame.sprite.Group()
+
 #Display constants
 SCREEN_WIDTH: int = 1280
 SCREEN_HEIGHT: int = 720
@@ -14,7 +18,7 @@ TEXT4BOXSIZE: tuple = (int(SCREEN_WIDTH//90), int(SCREEN_HEIGHT//1.25))
 TEXTBOXCOLOR: tuple = (0,0,255)
 
 #Text constants
-FONTSIZE: int = SCREEN_HEIGHT // 32
+FONTSIZE: int = SCREEN_HEIGHT // 44
 FONT: pygame.font.Font = pygame.font.Font('freesansbold.ttf', FONTSIZE)
 TEXTCOLOR: tuple = (255,255,255)
 MAINSTRING: str = "Want to play a game???"

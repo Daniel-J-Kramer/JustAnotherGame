@@ -1,4 +1,4 @@
-import main
+import pygame
 import constants
 
 class Character():

@@ -9,6 +9,9 @@ from gameCode import *
 import Character
 from Text import Text 
 #End import list
+updateable = pygame.sprite.Group()
+drawable = pygame.sprite.Group()
+texts = pygame.sprite.Group()
 #Begin game
 def main():
 #Initialization
@@ -17,11 +20,7 @@ def main():
     pygame.font.init()
 
     #Initialize Groups
-    updateable = pygame.sprite.Group()
-    drawable = pygame.sprite.Group()
-
-    #Initialize Containers
-    Text.containers = (drawable, updateable)
+    
 
     #Initialize Text
     txtmain: Text = Text("MAINTEXT", MAINSTRING, FONT, TEXTCOLOR, MAINTEXTBOX_SIZE)
@@ -33,6 +32,8 @@ def main():
     txtstrfour: Text = Text("STRINGFOUR", STRINGFOUR, FONT, TEXTCOLOR, TEXT4BOXSIZE)
     updateable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
     drawable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
+    texts.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
+
     #Text Backgrounds
     txtmainBackground = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT//1.2))
     txtmainBackground.fill(MAINTEXTBOXCOLOR)
@@ -99,19 +100,23 @@ def main():
         elif not display:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_1]:
-
+                for obj in texts:
+                    obj.reset_string()
                 display = True
             if keys[pygame.K_2]:
                 txtmain.color = (255,0,0)
-
+                for obj in texts:
+                    obj.reset_string()
                 display = True
             if keys[pygame.K_3]:
                 txtmain.color = (255,255,255)
-
+                for obj in texts:
+                    obj.reset_string()
                 display = True
             if keys[pygame.K_4]:
                 txtmain.color = (0,255,0)
-
+                for obj in texts:
+                    obj.reset_string()
                 display = True
 
     #End Game Math Code
