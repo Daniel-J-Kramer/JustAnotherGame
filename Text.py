@@ -14,13 +14,14 @@ class Text(DefaultObject):
         self.name = name
         self.font: pygame.font.Font = font
         self.color: tuple = color
-        self.rect: pygame.rect.Rect | None = None
+        self.rect: pygame.rect.Rect = self.font.render("", True, self.color).get_rect()
         self.image: pygame.Surface = self.font.render("", True, self.color)
         self.length: int = 0
         self.pos: tuple = pos
         self.written: str = ""
         self.step: bool = False
         self.maxlen: int = 18
+        self.done: bool = False
         if (self.name == "MAINTEXT"):
             self.maxlen = 56
 
@@ -41,6 +42,7 @@ class Text(DefaultObject):
     def update(self):
         if self.step == True:
             self.write_text()
+        self.get_done()
 
     def go_get_rect(self, txtbox):
         self.rect = self.image.get_rect()
@@ -66,18 +68,21 @@ class Text(DefaultObject):
             self.text = " ".join(splits)
             self.split_string(" ".join(carry), self.pos)
             
-
+    def get_done(self):
+        if len(self.text) == len(self.written):
+            self.done = True
 
 
     def split_string(self, text, pos):
         new_string = Text(f"{self.name}1",text,FONT,TEXTCOLOR,pos)
         new_string.step = True
         new_string.get_image()
-        if self.rect:
-            new_string.go_get_rect((self.rect.x, self.rect.y + (SCREEN_HEIGHT // 1)))
+        new_string.go_get_rect((self.rect.x, self.rect.y + (SCREEN_HEIGHT // 26)))
+        texts.add(new_string)
         updateable.add(new_string)
         drawable.add(new_string)
-        texts.add(new_string)
+
+
 
     def reset_string(self):
         self.written = ""

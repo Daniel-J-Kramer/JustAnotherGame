@@ -7,11 +7,9 @@ from choices import *
 from paths import *
 from gameCode import *
 import Character
-from Text import Text 
+from Text import Text
 #End import list
-updateable = pygame.sprite.Group()
-drawable = pygame.sprite.Group()
-texts = pygame.sprite.Group()
+
 #Begin game
 def main():
 #Initialization
@@ -69,13 +67,21 @@ def main():
         screen.blit(txtmainBackground, (0,SCREEN_HEIGHT//1.3))
         screen.blit(txtBackground, (0, 0))
         drawable.draw(screen)
+        
 
         for event in pygame.event.get():
            if event.type == pygame.QUIT:
                return
            
     #Begin Game Math Code
-        if (len(txtstrone.text) + len(txtstrtwo.text) + len(txtstrthree.text) + len(txtstrfour.text)) == (len(txtstrone.written) + len(txtstrtwo.written) + len(txtstrthree.written) + len(txtstrfour.written)):
+        strings_done = False
+        for string in texts:
+            if (string.done == False):
+                strings_done = False
+                break
+            strings_done = True
+            
+        if (strings_done):
             if block == False:
                 display = not display
                 block = True
