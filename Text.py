@@ -4,10 +4,11 @@ import random
 from DefaultObject import DefaultObject
 
 
+
 class Text(DefaultObject):
     
     
-    def __init__(self, name: str, text: str, font: pygame.font.Font, color: tuple, pos: tuple):
+    def __init__(self, name: str, text: str, font: pygame.font.Font, color: tuple, pos: tuple, isMain: bool = False):
         super().__init__()
         
         self.text: str = text
@@ -22,6 +23,7 @@ class Text(DefaultObject):
         self.step: bool = False
         self.maxlen: int = 18
         self.done: bool = False
+        self.isMain: bool = isMain
         if (self.name == "MAINTEXT"):
             self.maxlen = 56
 
@@ -83,9 +85,12 @@ class Text(DefaultObject):
         drawable.add(new_string)
 
 
-
     def reset_string(self):
         self.written = ""
         self.length = 0
         self.step = False
+        self.done = False
         self.get_image()
+        if self.isMain == False:
+            self.kill()
+            del self

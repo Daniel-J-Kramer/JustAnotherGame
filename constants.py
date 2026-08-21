@@ -27,10 +27,10 @@ STRINGONE: str = "Yes"
 STRINGTWO: str = "No"
 STRINGTHREE: str = "Change Text Speed"
 STRINGFOUR: str = "Change Color Scheme"
-SLOWTEXT: float = .2
-NORMAL: float = .15
-FASTTEXT: float = .075
-TEXTSPEED: float = NORMAL
+SLOWTEXT: float = .15
+NORMAL: float = .1
+FASTTEXT: float = .05
+TEXTSPEED: float = FASTTEXT
 
 #game constants
 CHOICE: int = 0

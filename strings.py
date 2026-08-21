@@ -1,3 +1,11 @@
+
+initial_strings = [
+    "How fast should I talk?",
+    "1. this slow?",
+    "2. this mediocre?",
+    "3. this fast?",
+]
+
 narrator = [
 "Lets start at a very good place to start.", #0
 "Or not, whatever suits you,", #1

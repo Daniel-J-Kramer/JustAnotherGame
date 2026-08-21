@@ -1,4 +1,4 @@
-from strings import narrator, errorHandling
+from strings import *
 from paths import twopath, threepath, fourpath, fivepath
 import time
 import random
@@ -7,14 +7,10 @@ import random
 #End variable list
 #Begin game code
 def choicespeed(delay):
-    textWriter("How fast should I talk?", delay)
-    textWriter("1. this slow?", .15)
-    textWriter("2. this mediocre?", .075)
-    textWriter("3. this fast?", .01)
 
-    speed = threepath(input(narrator[3]))
-    textWriter("Thank you for choosing properly", delay)
-    
+
+    "Thank you for choosing properly"
+    speed = 1
     if speed == 1:
         delay = .15
         return delay
@@ -28,82 +24,97 @@ def choicespeed(delay):
 def choicedifficulty(delay):
     difficulty = 0
     modifier = 0
-    textWriter("1. Easy", delay)
+    "1. Easy"
     time.sleep(.5)
-    textWriter("2. Normal", delay)
+    "2. Normal"
     time.sleep(.5)
-    textWriter("3. Hard", delay)
+    "3. Hard"
     time.sleep(.5)
-    textWriter("4. Why choose anything harder?", delay)
+    "4. Why choose anything harder?"
     time.sleep(.5)
 
-    difficulty = fourpath(input(narrator[3]))
+    difficulty = 0
 
     if difficulty == 1:
-        textWriter(narrator[14], delay)
+        narrator[14]
         time.sleep(.75)
-        textWriter(narrator[15], delay)
+        narrator[15]
         modifier = .5
         return modifier
     elif difficulty == 2:
-        textWriter(narrator[16], delay)
+        narrator[16]
         time.sleep(.75)
-        textWriter(narrator[17], delay)
+        narrator[17]
         modifier = 1
         return modifier
     elif difficulty == 3:
-        textWriter(narrator[18], delay)
+        narrator[18]
         time.sleep(.75)
-        textWriter(narrator[19], delay)
+        narrator[19]
         modifier = 1.5
         return modifier
     elif difficulty == 4:
-        textWriter(narrator[20], .2)
+        narrator[20]
         time.sleep(.75)
-        textWriter(narrator[21], delay)
+        narrator[21]
         modifier = 2
         return modifier
 
 def choiceworld(delay):
-    textWriter("1. A Good Place", delay)
+    "1. A Good Place"
     time.sleep(.5)
-    textWriter("2. A Bad Place", delay)
+    "2. A Bad Place"
     time.sleep(.5)
-    textWriter("3. A So-So Place", delay)
+    "3. A So-So Place"
     time.sleep(.5)
-    textWriter("4. A Weird Place", delay)
+    "4. A Weird Place"
     time.sleep(.5)
-    textWriter("5. A Random Place", delay)
+    "5. A Random Place"
     time.sleep(.25)
 
-    choice = fivepath(input(narrator[3]))
+    choice = narrator[3]
 
     if choice == 1:
-        textWriter(narrator[4], delay)
+        narrator[4]
         time.sleep(2)
-        textWriter(narrator[5], delay)
+        narrator[5]
         time.sleep(1)
     elif choice == 2:
-        textWriter(narrator[6], delay)
+        narrator[6]
         time.sleep(2)
-        textWriter(narrator[5], delay)
+        narrator[5]
         time.sleep(1)
     elif choice == 3:
-        textWriter(narrator[7], delay)
+        narrator[7]
         time.sleep(2)
-        textWriter(narrator[5], delay)
+        narrator[5]
         time.sleep(1)
     elif choice == 4:
-        textWriter(narrator[8], delay)
+        narrator[8]
         time.sleep(2)
-        textWriter(narrator[5], delay)
+        narrator[5]
         time.sleep(1)
     elif choice == 5:
         choice = random.choice([1, 2, 3, 4])
-        textWriter(narrator[9], delay)
+        narrator[9]
         time.sleep(2)
-        textWriter(narrator[5], delay)
+        narrator[5]
         time.sleep(1)
         return choice
 
     return choice
+
+def getText(name: str, strings: list):
+    if name == "MAINTEXT":
+        return strings[0]
+    elif name == "QUESTIONTEXT":
+        return narrator[3]
+    elif name == "STRINGONE":
+        return strings[1]
+    elif name == "STRINGTWO":
+        return strings[2]
+    elif name == "STRINGTHREE":
+        return strings[3]
+    elif name == "STRINGFOUR":
+        return ""
+    return ""

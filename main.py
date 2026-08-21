@@ -2,10 +2,8 @@ import pygame
 import time
 import random
 from constants import *
-from strings import *
-from choices import *
-from paths import *
-from gameCode import *
+from choices import getText
+import strings
 import Character
 from Text import Text
 #End import list
@@ -17,17 +15,14 @@ def main():
     pygame.display.set_caption("JustAnotherGame")
     pygame.font.init()
 
-    #Initialize Groups
-    
-
     #Initialize Text
-    txtmain: Text = Text("MAINTEXT", MAINSTRING, FONT, TEXTCOLOR, MAINTEXTBOX_SIZE)
+    txtmain: Text = Text("MAINTEXT", MAINSTRING, FONT, TEXTCOLOR, MAINTEXTBOX_SIZE, True)
     txtmain.step = True
-    txtquestion: Text = Text("QUESTIONTEXT", QUESTIONSTRING, FONT, TEXTCOLOR, TEXTQBOX_SIZE)
-    txtstrone: Text = Text("STRINGONE", STRINGONE, FONT, TEXTCOLOR, TEXT1BOXSIZE)
-    txtstrtwo: Text = Text("STRINGTWO", STRINGTWO, FONT, TEXTCOLOR, TEXT2BOXSIZE)
-    txtstrthree: Text = Text("STRINGTHREE", STRINGTHREE, FONT, TEXTCOLOR, TEXT3BOXSIZE)
-    txtstrfour: Text = Text("STRINGFOUR", STRINGFOUR, FONT, TEXTCOLOR, TEXT4BOXSIZE)
+    txtquestion: Text = Text("QUESTIONTEXT", QUESTIONSTRING, FONT, TEXTCOLOR, TEXTQBOX_SIZE, True)
+    txtstrone: Text = Text("STRINGONE", STRINGONE, FONT, TEXTCOLOR, TEXT1BOXSIZE, True)
+    txtstrtwo: Text = Text("STRINGTWO", STRINGTWO, FONT, TEXTCOLOR, TEXT2BOXSIZE, True)
+    txtstrthree: Text = Text("STRINGTHREE", STRINGTHREE, FONT, TEXTCOLOR, TEXT3BOXSIZE, True)
+    txtstrfour: Text = Text("STRINGFOUR", STRINGFOUR, FONT, TEXTCOLOR, TEXT4BOXSIZE, True)
     updateable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
     drawable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
     texts.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
@@ -63,6 +58,7 @@ def main():
 #End Initialization
 #Begin Game Loop
     while True:
+
         screen.fill((0, 0, 0))
         screen.blit(txtmainBackground, (0,SCREEN_HEIGHT//1.3))
         screen.blit(txtBackground, (0, 0))
@@ -74,6 +70,7 @@ def main():
                return
            
     #Begin Game Math Code
+        #Write Texts
         strings_done = False
         for string in texts:
             if (string.done == False):
@@ -91,6 +88,9 @@ def main():
         if display:
             if txtmain.step == False:
                 txtmain.step = True
+                updateable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
+                drawable.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
+                texts.add(txtmain, txtquestion, txtstrone, txtstrtwo, txtstrthree, txtstrfour)
 
             updateable.update()
 
@@ -103,27 +103,41 @@ def main():
                     txtstrfour.step = True
 
             time.sleep(TEXTSPEED)
+            
+        #Make Choices
         elif not display:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_1]:
+                path_strings = strings.initial_strings
                 for obj in texts:
                     obj.reset_string()
+                    obj.text = getText(obj.name, path_strings)
                 display = True
+                strings_done = False
             if keys[pygame.K_2]:
+                path_strings = strings.initial_strings
                 txtmain.color = (255,0,0)
                 for obj in texts:
                     obj.reset_string()
+                    obj.text = getText(obj.name, path_strings)
                 display = True
+                strings_done = False
             if keys[pygame.K_3]:
+                path_strings = strings.initial_strings
                 txtmain.color = (255,255,255)
                 for obj in texts:
                     obj.reset_string()
+                    obj.text = getText(obj.name, path_strings)
                 display = True
+                strings_done = False
             if keys[pygame.K_4]:
+                path_strings = strings.initial_strings
                 txtmain.color = (0,255,0)
                 for obj in texts:
                     obj.reset_string()
+                    obj.text = getText(obj.name, path_strings)
                 display = True
+                strings_done = False
 
     #End Game Math Code
 #-------------------------------------------------------------------
