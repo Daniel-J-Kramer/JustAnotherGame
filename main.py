@@ -2,10 +2,11 @@ import pygame
 import time
 import random
 from constants import *
-from choices import getText
-import strings
+import choices
+from strings import *
 import Character
 from Text import Text
+from getText import getText
 #End import list
 
 #Begin game
@@ -108,34 +109,31 @@ def main():
         elif not display:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_1]:
-                path_strings = strings.initial_strings
+                APATH, BPATH, CPATH, DPATH = APATH(APATH, BPATH, CPATH, DPATH)
+                print(APATH)
+                print(BPATH)
+                print(CPATH)
+                print(DPATH)
                 for obj in texts:
                     obj.reset_string()
-                    obj.text = getText(obj.name, path_strings)
                 display = True
                 strings_done = False
             if keys[pygame.K_2]:
-                path_strings = strings.initial_strings
-                txtmain.color = (255,0,0)
+                APATH, BPATH, CPATH, DPATH = BPATH(APATH, BPATH, CPATH, DPATH)
                 for obj in texts:
                     obj.reset_string()
-                    obj.text = getText(obj.name, path_strings)
                 display = True
                 strings_done = False
             if keys[pygame.K_3]:
-                path_strings = strings.initial_strings
-                txtmain.color = (255,255,255)
+                APATH, BPATH, CPATH, DPATH = CPATH(APATH, BPATH, CPATH, DPATH)
                 for obj in texts:
                     obj.reset_string()
-                    obj.text = getText(obj.name, path_strings)
                 display = True
                 strings_done = False
             if keys[pygame.K_4]:
-                path_strings = strings.initial_strings
-                txtmain.color = (0,255,0)
+                APATH, BPATH, CPATH, DPATH = DPATH(APATH, BPATH, CPATH, DPATH)
                 for obj in texts:
                     obj.reset_string()
-                    obj.text = getText(obj.name, path_strings)
                 display = True
                 strings_done = False
 

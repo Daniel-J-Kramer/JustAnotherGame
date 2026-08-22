@@ -1,6 +1,9 @@
 import pygame
+from strings import startStrings
+from paths import *
 pygame.font.init()
 
+#Sprite Groups
 updateable = pygame.sprite.Group()
 drawable = pygame.sprite.Group()
 texts = pygame.sprite.Group()
@@ -21,20 +24,24 @@ TEXTBOXCOLOR: tuple = (0,0,255)
 FONTSIZE: int = SCREEN_HEIGHT // 44
 FONT: pygame.font.Font = pygame.font.Font('freesansbold.ttf', FONTSIZE)
 TEXTCOLOR: tuple = (255,255,255)
-MAINSTRING: str = "Want to play a game???"
-QUESTIONSTRING: str = "Choose an Option:"
-STRINGONE: str = "Yes"
-STRINGTWO: str = "No"
-STRINGTHREE: str = "Change Text Speed"
-STRINGFOUR: str = "Change Color Scheme"
+MAINSTRING: str = startStrings[0]
+QUESTIONSTRING: str = startStrings[1]
+STRINGONE: str = startStrings[2]
+STRINGTWO: str = startStrings[3]
+STRINGTHREE: str = startStrings[4]
+STRINGFOUR: str = startStrings[5]
 SLOWTEXT: float = .15
 NORMAL: float = .1
 FASTTEXT: float = .05
 TEXTSPEED: float = FASTTEXT
 
-#game constants
+#game states
 CHOICE: int = 0
 PATH: int = 0
 SAVESTATE: int = 0
 MODIFIER: float = 0
 DELAY: float = .03
+APATH = choiceAAA
+BPATH = choiceAAB
+CPATH = choiceAAC
+DPATH = choiceAAD
